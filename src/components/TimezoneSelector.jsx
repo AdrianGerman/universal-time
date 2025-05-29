@@ -1,14 +1,7 @@
 import React from "react"
+import { timezones } from "../utils/timezones"
 
 const TimezoneSelector = ({ currentTimezone, onTimezoneChange }) => {
-  const timezones = [
-    { value: "America/Mexico_City", label: "CDMX" },
-    { value: "America/New_York", label: "NY" },
-    { value: "Europe/Madrid", label: "Madrid" },
-    { value: "Europe/London", label: "Londres" },
-    { value: "Asia/Tokyo", label: "Tokio" }
-  ]
-
   return (
     <select
       value={currentTimezone}
@@ -17,7 +10,7 @@ const TimezoneSelector = ({ currentTimezone, onTimezoneChange }) => {
     >
       {timezones.map((tz) => (
         <option key={tz.value} value={tz.value} className="text-black">
-          {tz.label}
+          {tz.flag} {tz.label}
         </option>
       ))}
     </select>
