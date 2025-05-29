@@ -1,20 +1,20 @@
 import React from "react"
+import { themes } from "../utils/themes"
 
 const ThemeSelector = ({ currentTheme, onThemeChange }) => {
-  const themes = ["modern", "classic", "neon", "minimal", "dark"]
-
   return (
-    <select
-      value={currentTheme}
-      onChange={(e) => onThemeChange(e.target.value)}
-      className="bg-transparent border-b border-white text-white px-2 py-1 text-sm outline-none"
-    >
+    <div className="flex gap-2 items-center">
       {themes.map((theme) => (
-        <option key={theme} value={theme} className="text-black">
-          {theme}
-        </option>
+        <button
+          key={theme.value}
+          onClick={() => onThemeChange(theme.value)}
+          className={`w-6 h-6 rounded-full border-2 ${
+            currentTheme === theme.value ? "border-white" : "border-transparent"
+          } ${theme.color}`}
+          title={theme.label}
+        ></button>
       ))}
-    </select>
+    </div>
   )
 }
 
