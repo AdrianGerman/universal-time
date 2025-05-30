@@ -7,7 +7,9 @@ const Clock = ({ time, timezone, theme }) => {
 
   return (
     <div className="text-center">
-      <div className={`${styles.time} mb-3`}>{formatTime(time, timezone)}</div>
+      <div className={`${styles.time} mb-3 text-[250px]`}>
+        {formatTime(time, timezone)}
+      </div>
       <div className={`${styles.date} capitalize`}>
         {formatDate(time, timezone)}
       </div>
