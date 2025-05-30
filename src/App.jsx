@@ -3,16 +3,29 @@ import Clock from "./components/Clock"
 import TimezoneSelector from "./components/TimezoneSelector"
 import ThemeSelector from "./components/ThemeSelector"
 import { getThemeStyles } from "./utils/themeStyles"
+import { getStoredValue, setStoredValue } from "./utils/persistence"
 
 const App = () => {
-  const [timezone, setTimezone] = useState("America/Mexico_City")
-  const [theme, setTheme] = useState("modern")
+  const [timezone, setTimezone] = useState(() =>
+    getStoredValue("timezone", "America/Mexico_City")
+  )
+
+  const [theme, setTheme] = useState(() => getStoredValue("theme", "modern"))
+
   const [time, setTime] = useState(new Date())
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000)
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    setStoredValue("timezone", timezone)
+  }, [timezone])
+
+  useEffect(() => {
+    setStoredValue("theme", theme)
+  }, [theme])
 
   const styles = getThemeStyles(theme)
 
