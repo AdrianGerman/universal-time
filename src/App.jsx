@@ -42,22 +42,23 @@ const App = () => {
     <div
       className={`w-full h-screen ${styles.container} flex flex-col items-center justify-center px-4`}
     >
-      <div className="absolute top-4 w-full max-w-4xl flex flex-col md:flex-row justify-between px-6 gap-2 md:gap-0">
-        <div className="flex gap-12 items-center">
-          <TimezoneSelector
-            currentTimezone={timezone1}
-            onTimezoneChange={setTimezone1}
-          />
-          {showSecondClock && (
+      <div className="absolute top-4 w-full max-w-4xl flex flex-col md:flex-row justify-between px-6 gap-4">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center">
+          <div className="flex flex-col gap-2">
             <TimezoneSelector
-              currentTimezone={timezone2}
-              onTimezoneChange={setTimezone2}
+              currentTimezone={timezone1}
+              onTimezoneChange={setTimezone1}
             />
-          )}
-        </div>
-        <div className="flex gap-4 items-center">
-          <label className="flex items-center gap-3 cursor-pointer select-none text-white text-sm">
-            <span className="mr-1">2 relojes</span>
+            {showSecondClock && (
+              <TimezoneSelector
+                currentTimezone={timezone2}
+                onTimezoneChange={setTimezone2}
+              />
+            )}
+          </div>
+
+          <label className="flex items-center gap-3 cursor-pointer select-none text-white text-sm mt-2 md:mt-0">
+            <span className="text-white">Mostrar 2 relojes</span>
             <span className="relative inline-block w-12 h-7">
               <input
                 type="checkbox"
@@ -69,13 +70,14 @@ const App = () => {
               <span className="absolute left-0 top-0 w-7 h-7 bg-white border border-gray-300 rounded-full transition-transform duration-300 ease-in-out transform peer-checked:translate-x-5 shadow-md" />
             </span>
           </label>
+        </div>
 
+        <div className="flex gap-4 items-center">
           <ThemeSelector currentTheme={theme} onThemeChange={setTheme} />
         </div>
       </div>
-      <div
-        className={`flex flex-col md:flex-row  items-center justify-around w-full mt-16`}
-      >
+
+      <div className="flex flex-col md:flex-row items-center justify-around w-full mt-16">
         <Clock
           time={time}
           timezone={timezone1}
