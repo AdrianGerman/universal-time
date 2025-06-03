@@ -1,8 +1,25 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=VT323&family=Playfair+Display:wght@700&family=UnifrakturCook:wght@700&family=Major+Mono+Display&family=Share+Tech+Mono&family=Pacifico&display=swap');
+@import 'tailwindcss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color-scheme: light dark;
   background-color: #242424;
+}
+
+.font-digital {
+  font-family: 'Orbitron', 'Share Tech Mono', monospace;
+}
+.font-retro {
+  font-family: 'VT323', monospace;
+}
+.font-luxury {
+  font-family: 'Playfair Display', serif;
+}
+.font-scifi {
+  font-family: 'Major Mono Display', monospace;
+}
+.font-nature {
+  font-family: 'Pacifico', cursive;
 }
